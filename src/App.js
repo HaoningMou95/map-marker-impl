@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react'
 import './App.css'
+import { useState, useMemo } from 'react'
 import Map from './Map'
 import Markers from './Markers'
 import Popup from './Popup'
@@ -19,12 +19,12 @@ function App() {
     <div className='App'>
       <div className='container'>
         <div className='markers-wrapper'>
-          <Markers markers={{ markersList }} />
+          <Markers markersList={markersList} />
           <Popup onAddMarker={handleAddMarker} />
         </div>
 
         <div className='map-wrapper'>
-          <Map markers={{ markersList }} />
+          <Map markersList={markersList} />
         </div>
       </div>
     </div>

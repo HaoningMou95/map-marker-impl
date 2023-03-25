@@ -3,7 +3,7 @@ import Popup from './Popup'
 import { useState, useEffect } from 'react'
 
 export default function Markers(props) {
-  const markers = props.prop.markersList
+  const markers = props.markers.markersList
   const onAddMarker = props.onAddMarker
   const [markersList, setMarkersList] = useState(markers)
 
@@ -21,7 +21,6 @@ export default function Markers(props) {
           ))}
         </ul>
       </div>
-      <Popup onAddMarker={onAddMarker} />
     </div>
   )
 }

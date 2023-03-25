@@ -18,6 +18,7 @@ export default function Popup(props) {
     setInputPosition(event.target.value)
   }
 
+  // Convert the string position to an array of numbers
   const parsePosition = (position) => {
     const [lat, lng] = position.split(',').map(Number)
     return [lat, lng]
@@ -27,7 +28,7 @@ export default function Popup(props) {
     const newMarker = {
       id: Math.floor(Math.random() * 1000),
       name: inputName,
-      position: parsePosition(inputPosition) // Convert the string position to an array of numbers
+      position: parsePosition(inputPosition) 
     }
     onAddMarker(newMarker) // Call the onAddMarker function with the new marker
     togglePopup()

@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App-logo {
@@ -35,4 +37,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.map-wrapper {
+  /* margin-left: 50px; */
+  margin-right: 100px;
+  margin-top: 100px;
+}
+
+.markers-wrapper {
+  flex: 1;
+  margin-left: 200px;
 }

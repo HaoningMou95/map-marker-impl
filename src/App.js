@@ -1,28 +1,26 @@
-import logo from './logo.svg'
 import './App.css'
 import Map from './Map'
 import Markers from './Markers'
-import Popup from './Popup'
-
-
+import { useState, useMemo } from 'react'
 
 function App() {
-  const markers = [
-    { id: 1, position: [-37.916, 145.019], name: 'Marker 1' },
-    { id: 2, position: [-37.916, 145.029], name: 'Marker 2' },
-    { id: 3, position: [-37.916, 145.039], name: 'Marker 3' }
-  ]
+  const data = [{ id: 1, position: [-37.905556, 145.049444], name: 'Home' }]
+  const [markers, setMarkers] = useState(data)
 
+  const markersList = useMemo(() => markers, [markers])
 
+  const handleAddMarker = (newMarker) => {
+    setMarkers([...markers, newMarker])
+  }
 
   return (
     <div className='App'>
       <div className='markers-wrapper'>
-        <Markers prop={{markers}}/>
+        <Markers prop={{ markersList }} onAddMarker={handleAddMarker} />
       </div>
 
       <div className='map-wrapper'>
-        <Map prop={{markers}}/>
+        <Map prop={{ markersList }} />
       </div>
     </div>
   )

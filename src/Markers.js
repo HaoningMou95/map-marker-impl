@@ -1,17 +1,15 @@
 import Popup from './Popup'
-import { useState } from 'react'
+
+import { useState, useEffect } from 'react'
 
 export default function Markers(props) {
-  const { markers } = props.prop
+  const markers = props.prop.markersList
+  const onAddMarker = props.onAddMarker
   const [markersList, setMarkersList] = useState(markers)
 
-  const handleAddMarker = (newMarker) => {
-    setMarkersList([...markersList, newMarker])
-  }
-
-  const showMarkers = () => {
-    console.log(markersList)
-  }
+  useEffect(() => {
+    setMarkersList(markers)
+  }, [markers])
 
   return (
     <div>
@@ -23,8 +21,7 @@ export default function Markers(props) {
           ))}
         </ul>
       </div>
-      <Popup onAddMarker={handleAddMarker}/>
-      <button onClick={showMarkers}>test</button>
+      <Popup onAddMarker={onAddMarker} />
     </div>
   )
 }
